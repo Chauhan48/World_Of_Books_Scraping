@@ -1,5 +1,6 @@
 import { Process, Processor } from '@nestjs/bull';
 import { Injectable, Logger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 import { Job } from 'bull';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -19,9 +20,9 @@ export class ScrapingProcessor {
   constructor(
     private readonly scraperService: ScraperService,
     private readonly queueService: ScrapingQueueService,
-    private readonly navigationService: NavigationService,
-    private readonly categoriesService: CategoriesService,
-    private readonly productsService: ProductsService
+    @Inject('NavigationService') private readonly navigationService: any,
+    @Inject('CategoriesService') private readonly categoriesService: any,
+    @Inject('ProductsService') private readonly productsService: any
   ) {}
 
   @Process('scrape')
