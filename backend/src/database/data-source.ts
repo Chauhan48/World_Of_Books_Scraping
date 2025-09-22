@@ -15,7 +15,7 @@ export const AppDataSource = new DataSource({
   host: configService.get('DB_HOST') || 'localhost',
   port: parseInt(configService.get('DB_PORT')) || 5432,
   username: configService.get('DB_USERNAME') || 'postgres',
-  password: configService.get('DB_PASSWORD') || 'password',
+  password: configService.get('DB_PASSWORD') || 'yourpassword',
   database: configService.get('DB_NAME') || 'product_explorer',
   synchronize: configService.get('NODE_ENV') === 'development',
   logging: configService.get('NODE_ENV') === 'development',
