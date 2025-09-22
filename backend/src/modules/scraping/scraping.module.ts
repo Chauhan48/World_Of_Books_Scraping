@@ -41,7 +41,7 @@ export class SimpleNavigationService {
 
 @Injectable()
 export class SimpleCategoriesService {
-  constructor(@InjectRepository(Category) private repo: Repository<Category>) { }
+  constructor(@InjectRepository(Category) public repo: Repository<Category>) { }
 
   async findBySourceUrl(url: string) {
     return this.repo.findOne({ where: { source_url: url } });
